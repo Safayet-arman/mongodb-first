@@ -16,7 +16,7 @@ const fruit = new Fruit({
   rating: 7,
   review:"good taste"
 });
-// fruit.save();
+fruit.save();
 
 const personSchema = new mongoose.Schema({
   name: String,
@@ -29,7 +29,7 @@ const person = new Person({
   name: "Arman",
   age: 21
 });
-// person.save();
+person.save();
 
 
 const kiwi = new Fruit({
@@ -49,26 +49,10 @@ const banana = new Fruit({
   score: 7,
   review: "love this"
 });
-// Fruit.insertMany([kiwi,Orange,banana], function(err){
-//   if(err){
-//     console.log(err);
-//   }else{
-//     console.log("successfully saved");
-//   }
-// });
-
-Fruit.find(function(err,fruits){
+Fruit.insertMany([kiwi,Orange,banana], function(err){
   if(err){
     console.log(err);
   }else{
-    console.log(fruits);
-
-    //closing mongoserver
-    mongoose.connection.close();
-
-    fruits.forEach(function(fruit){
-      console.log(fruit.name);
-    });
+    console.log("successfully saved");
   }
 });
-
